@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 public class Caso_9 {
 
-	public static void main(String[] args) {  //falta
+	public static void main(String[] args) {  
 		Scanner sc = new Scanner(System.in);
 		DecimalFormat df = new DecimalFormat("#.00");
 		
 		int n1 = 0, n2 = 0, n3 = 0, nr = 0, num_cert = 0, num_scert = 0;
 		float pro_mayor = 0, pro_menor = 100;
-		String nombre = null, estado = "", continuar = "S";
+		String nombre = "", estado = "", continuar = "S", nom_mayor = "", nom_menor = "";
 		
 		while (continuar.equals("S")|| continuar.equals("s")) {
 			nr++;
@@ -40,11 +40,13 @@ public class Caso_9 {
 			for(int i = 0; i < nr; i++);
 				if (promedio > pro_mayor) { 
 					pro_mayor = promedio;
+					nom_mayor = nombre;
 				}
 				
 			for(int i = 0; i < nr; i++);
 				if (promedio < pro_menor) { 
-				pro_menor = promedio;
+					pro_menor = promedio;
+					nom_menor = nombre;
 				}
 					
 			if (promedio >= 13 && pa >= 70 ) {
@@ -55,6 +57,7 @@ public class Caso_9 {
 				estado = "Sin certificado";
 				num_scert++;
 			}
+			
 			System.out.println("\n---------------------------------");
 			System.out.println("------- R E S U L T A D O -------");
 			System.out.println("---------------------------------");
@@ -73,14 +76,12 @@ public class Caso_9 {
 		System.out.println("-- R E S U M E N --");
 		System.out.println("Número de alumnos........: " + nr);
 		
-		System.out.println("Mayor promedio " + pro_mayor + " pertenece a: " + nombre);
-		System.out.println("Menor promedio " + pro_menor + " pertenece a: " + nombre);
+		System.out.println("Mayor promedio " + pro_mayor + " pertenece a: " + nom_mayor);
+		System.out.println("Menor promedio " + df.format(pro_menor) + " pertenece a: " + nom_menor);
 		System.out.println("Número de alumnos certificados...: " + num_cert);
 		System.out.println("Número de alumnos sin certificado...: " + num_scert);
 		
 	
-		
-
 	}
 
 }
